@@ -1,53 +1,53 @@
 # Jumpbox outputs
-output "jumpbox_external_ip" {
-  description = "External IP address of jumpbox"
-  value = {
-    for i, instance in google_compute_instance.jumpbox :
-    instance.name => instance.network_interface[0].access_config[0].nat_ip
-  }
-}
+# output "jumpbox_external_ip" {
+#   description = "External IP address of jumpbox"
+#   value = {
+#     for i, instance in google_compute_instance.jumpbox :
+#     instance.name => instance.network_interface[0].access_config[0].nat_ip
+#   }
+# }
 
-output "jumpbox_internal_ip" {
-  description = "Internal IP address of jumpbox"
-  value = {
-    for i, instance in google_compute_instance.jumpbox :
-    instance.name => instance.network_interface[0].network_ip
-  }
-}
+# output "jumpbox_internal_ip" {
+#   description = "Internal IP address of jumpbox"
+#   value = {
+#     for i, instance in google_compute_instance.jumpbox :
+#     instance.name => instance.network_interface[0].network_ip
+#   }
+# }
 
-# Controller node outputs
-output "controller_external_ip" {
-  description = "External IP address of controller node"
-  value = {
-    for i, instance in google_compute_instance.controller :
-    instance.name => instance.network_interface[0].access_config[0].nat_ip
-  }
-}
+# # Controller node outputs
+# output "controller_external_ip" {
+#   description = "External IP address of controller node"
+#   value = {
+#     for i, instance in google_compute_instance.controller :
+#     instance.name => instance.network_interface[0].access_config[0].nat_ip
+#   }
+# }
 
-output "controller_internal_ip" {
-  description = "Internal IP address of controller node"
-  value = {
-    for i, instance in google_compute_instance.controller :
-    instance.name => instance.network_interface[0].network_ip
-  }
-}
+# output "controller_internal_ip" {
+#   description = "Internal IP address of controller node"
+#   value = {
+#     for i, instance in google_compute_instance.controller :
+#     instance.name => instance.network_interface[0].network_ip
+#   }
+# }
 
-# Worker node outputs
-output "worker_external_ips" {
-  description = "External IP addresses of worker nodes"
-  value = {
-    for i, instance in google_compute_instance.worker :
-    instance.name => instance.network_interface[0].access_config[0].nat_ip
-  }
-}
+# # Worker node outputs
+# output "worker_external_ips" {
+#   description = "External IP addresses of worker nodes"
+#   value = {
+#     for i, instance in google_compute_instance.worker :
+#     instance.name => instance.network_interface[0].access_config[0].nat_ip
+#   }
+# }
 
-output "worker_internal_ips" {
-  description = "Internal IP addresses of worker nodes"
-  value = {
-    for i, instance in google_compute_instance.worker :
-    instance.name => instance.network_interface[0].network_ip
-  }
-}
+# output "worker_internal_ips" {
+#   description = "Internal IP addresses of worker nodes"
+#   value = {
+#     for i, instance in google_compute_instance.worker :
+#     instance.name => instance.network_interface[0].network_ip
+#   }
+# }
 
 # SSH connection commands with private key
 output "ssh_commands" {
