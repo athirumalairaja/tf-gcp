@@ -30,5 +30,11 @@ variable "ssh_username" {
 variable "ssh_public_key_path" {
   description = "Path to SSH public key"
   type        = string
-  default     = "~/.ssh/kthw-gcp.pub"
+  default     = "~/.ssh/gcp_k8s_hw.pub"
+}
+
+variable "ssh_private_key_path" {
+  description = "Path to the SSH private key corresponding to the public key."
+  type        = string
+  default     = "~/.ssh/kthw-gcp" # Corresponds to the public key
 }

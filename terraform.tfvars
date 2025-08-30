@@ -1,6 +1,6 @@
-project_id = "eminent-carver-470308-b3"
+project_id = "stoked-outlook-470308-s7"
 region     = "us-central1"
 zone       = "us-central1-a"
 machine_type = "e2-small"
 ssh_username = "kthw-gcp"
-ssh_public_key_path = "~/.ssh/kthw-gcp.pub"
+ssh_public_key_path = "~/.ssh/gcp_k8s_hw.pub"
