@@ -18,7 +18,7 @@ provider "google" {
 # Create Jumpbox VM
 resource "google_compute_instance" "jumpbox" {
   count        = 1
-  name         = "jumpbox-${count.index}"
+  name         = "jumpbox"
   machine_type = var.machine_type
   zone         = var.zone
 
@@ -57,10 +57,10 @@ resource "google_compute_instance" "jumpbox" {
   }
 }
 
-# Create Controller VM (for Kubernetes control plane)
-resource "google_compute_instance" "controller" {
+# Create Server VM (for Kubernetes control plane)
+resource "google_compute_instance" "server" {
   count        = 1
-  name         = "controller-${count.index}"
+  name         = "server"
   machine_type = var.machine_type
   zone         = var.zone
 
@@ -90,19 +90,19 @@ resource "google_compute_instance" "controller" {
   }
 
   # Tags for firewall rules
-  tags = ["kthw", "controller"]
+  tags = ["kthw", "server"]
 
   labels = {
     environment = "learning"
     purpose     = "kubernetes-the-hard-way"
-    role        = "controller"
+    role        = "server"
   }
 }
 
 # Create Worker VMs (for Kubernetes worker nodes)
 resource "google_compute_instance" "worker" {
   count        = 2
-  name         = "worker-${count.index}"
+  name         = "node-${count.index}"
   machine_type = var.machine_type
   zone         = var.zone
 
@@ -166,7 +166,7 @@ resource "google_compute_firewall" "allow_k8s_api" {
   }
 
   source_ranges = ["0.0.0.0/0"]  # So kubectl from your laptop works
-  target_tags   = ["controller"]
+  target_tags   = ["server"]
 }
 
 # Allow internal cluster communication

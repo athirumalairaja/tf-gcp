@@ -2,8 +2,9 @@ This Terraform configuration creates the infrastructure needed for [Kubernetes T
 
 ## Infrastructure Created
 
-- **2 Controller nodes** (for Kubernetes control plane)
-- **3 Worker nodes** (for Kubernetes workloads)
+- **1 Jumpbox** (Kubernetes Administration host)
+- **1 server node** (for Kubernetes control plane)
+- **2 Worker nodes** (for Kubernetes workloads)
 - **Firewall rules** for SSH, Kubernetes API, and internal cluster communication
 - **Debian 12 (Bookworm)** on all nodes
 - **e2-small instances** (cost-effective for learning)
