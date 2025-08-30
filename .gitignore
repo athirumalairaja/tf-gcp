@@ -1,6 +1,7 @@
 #tr_files
 *.terraform*
 *tf-key.json
+*.tfstate
 
 # Dependencies
 node_modules/
